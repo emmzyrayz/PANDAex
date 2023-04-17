@@ -1,0 +1,110 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header.pre-loader
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #050505;
+    animation: jump 6s linear infinite alternate;
+}
+.cube
+{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    border-radius: 19px;
+    animation: animate 6s linear infinite alternate;
+}
+.amb-img{
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    margin-top: 120px;
+    margin-left: 20px;
+    border-radius: 18px;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotateX(-30deg) rotateY(0deg);
+        
+    }
+    100%
+    {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+.cube div
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+@keyframes jump
+{
+    0% { transform: translateY(0px);}
+    25%{
+        transform: translateY(-30px);
+        background: linear-gradient(#000000,#448344c2);
+    }
+    50% { transform: translateY(-60px);
+            background: linear-gradient(#369c36,#00ff00da);
+    }
+    75%{
+        transform: translateY(-30px);
+        background: linear-gradient(#399939da,#000000);
+    }
+    100% { transform: translateY(0px);}
+}
+.cube div span
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#000000, #00ec00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+}
+.top
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: rgb(20, 20, 20);
+    transform: rotateX(90deg) translateZ(150px);
+    border: 9px solid rgb(20, 20, 20);
+    
+}
+.top::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: rgb(0, 255, 0);
+    transform: translateZ(-380px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(0,255,0,0.2),
+    0 0 200px rgba(0,255,0,0.4),
+    0 0 300px rgba(0,255,0,0.6),
+    0 0 400px rgba(0,255,0,0.8),
+    0 0 500px rgba(0,255,0,1);
+}
